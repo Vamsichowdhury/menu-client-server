@@ -66,7 +66,6 @@ const createCategory = asyncHandler(async (req, res) => {
         const category = await categoryModel.create(req.body);
         res.status(201).json(category);
     } catch (error) {
-        console.error('Error creating category:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 });
@@ -142,7 +141,6 @@ const deleteCategory = asyncHandler(async (req, res) => {
                 // Check if the file exists before attempting to delete it
                 if (fs.existsSync(imagePath)) {
                     fs.unlinkSync(imagePath);
-                    console.log(`Deleted item image: ${imagePath}`);
                 } else {
                     console.log(`Image file not found: ${imagePath}`);
                 }
@@ -158,7 +156,6 @@ const deleteCategory = asyncHandler(async (req, res) => {
         try {
             if (fs.existsSync(categoryImagePath)) {
                 fs.unlinkSync(categoryImagePath);
-                console.log(`Deleted category image: ${categoryImagePath}`);
             } else {
                 console.log(`Category image file not found: ${categoryImagePath}`);
             }
@@ -231,9 +228,8 @@ const editItemInCategory = asyncHandler(async (req, res) => {
     if (!category) {
         return res.status(404).json({ message: 'Category not found' });
     }
-
     // Find the index of the item in the totalItems array
-    const index = category.totalItems.findIndex(item => item._id.toString() === itemId);
+    const index = category.totalItems.findIndex(item => item?._id.toString() === itemId);
     if (index === -1) {
         return res.status(404).json({ message: 'Item not found' });
     }
@@ -269,7 +265,7 @@ const editItemInCategory = asyncHandler(async (req, res) => {
     }
 
     // Update the item at the found index with the new data
-    category.totalItems[index] = { ...category.totalItems[index]._doc, ...updatedItem };
+    category.totalItems[index] = { ...category.totalItems[index]._doc, ...updatedItem, _id: itemId };
 
     // Save the category with the updated item
     await category.save();

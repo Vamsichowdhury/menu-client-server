@@ -24,7 +24,7 @@
                         prepend-avatar="https://randomuser.me/api/portraits/lego/8.jpg">
                         <v-tooltip activator="parent" location="top">{{ getCurrentAdmin?.email }}</v-tooltip>
                         <v-chip class="bg-primary">
-                            <p class="font-weight-bold">{{ getCurrentAdmin?.adminLevel === "superAdmin" ? 'Super Admin'
+                            <p class="font-weight-bold">{{ getCurrentAdmin?.adminLevel === "Super Admin" ? 'Super Admin'
         :
         'Admin'
                                 }}</p>

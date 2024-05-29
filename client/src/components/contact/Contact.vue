@@ -65,7 +65,7 @@
         </v-list-item>
       </v-list>
       <!-- <div class="pa-2">
-        <v-img rounded="lg" height="250" src="http://localhost:5001/uploads/image-1716305740139-735922061.jpg"
+        <v-img rounded="lg" height="250" :src="`${process.env.BASE_URL}/uploads/image-1716305740139-735922061.jpg`"
           cover></v-img>
       </div> -->
     </v-card>

@@ -13,7 +13,7 @@ axios.interceptors.request.use(
     }
 )
 
-const domain = "http://localhost:5001/api"
+const domain = `${process.env.BASE_URL}/api`
 
 const getSelectedCategoryAPI = async (id) => {
     let url = `${domain}/admin/categories/${id}`;

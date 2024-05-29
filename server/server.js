@@ -13,7 +13,6 @@ const app = express()
 app.use(cors());
 
 const port = process.env.PORT || 5000
-// console.log(app)
 app.use(express.json())
 
 // Serve static files from the 'uploads' directory

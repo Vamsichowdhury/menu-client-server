@@ -78,7 +78,6 @@ export default {
             if (this.categoryImage) {
                 formData.append('image', this.categoryImage);
             }
-
             this.isLoading = true;
             try {
                 if (this.getCategoryDialogData?.operation === "Add Category") {

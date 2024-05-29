@@ -21,7 +21,6 @@ const auth = {
             state.currentAdmin = payload
         },
         setAuthStatus: (state, payload) => {
-            console.log({payload})
             state.authStatus = payload
         }
     },

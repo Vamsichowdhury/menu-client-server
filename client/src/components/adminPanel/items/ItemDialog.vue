@@ -94,7 +94,6 @@ export default {
             }
 
             this.isLoading = true;
-            console.log(this.getItemDialogData)
             try {
                 if (this.getItemDialogData?.operation === "Add Item") {
                     await this.addItemToCategory({ categoryId: this.getItemDialogData?.id, item: formData });

@@ -13,10 +13,9 @@ axios.interceptors.request.use(
     }
 )
 
-const domain = "http://localhost:5001/api"
+const domain = `${process.env.BASE_URL}/api`
 
 const registerAdminAPI = async (payload) => {
-    console.log({ payload })
     let url = `${domain}/admin/adminDashboard/register`;
     return await axios.post(url, payload)
 };

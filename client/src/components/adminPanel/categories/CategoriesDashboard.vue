@@ -143,8 +143,7 @@ export default {
 
         },
         getImageUrl(relativePath) {
-            // Assuming your backend server is running on http://localhost:5001
-            const baseUrl = 'http://localhost:5001';
+            const baseUrl = process.env.BASE_URL;
             return `${baseUrl}${relativePath}`;
         }
     },
